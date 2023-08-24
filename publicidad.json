@@ -1,0 +1,39 @@
+[
+{
+	"model": "publicidad.publicidad", "pk": 1, 
+	"fields":
+		{
+		"empresa": "Luc-Marc",
+		"descripcion": "Servicios de grafica y polarizados / stickers diseñamos tu marca / sellos /impresiones remeras / gorras / y más 🙈🙉🙊📲 ❇️📶▶️3874738969",
+		"tel": "3871234567",
+		"imagen": "https://i.im.ge/2022/08/27/O6NG1X.tu-grafica.jpg",
+		"link": "https://www.facebook.com/tugra.fica.5",
+		"activo": "True"
+	}
+},
+{	
+	"model": "publicidad.publicidad", "pk": 2, 
+	"fields":
+		{
+		"empresa": "La Veloz",
+		"descripcion": "El servicio de transporte mas grande de todo el norte",
+		"tel": "3871234567",
+		"imagen": "https://i.im.ge/2023/08/03/9nxbDP.image.png",
+		"link": "https:www.lavelozdelnorte.com.ar",
+		"activo": "True"
+	}	
+},
+{	
+	"model": "publicidad.publicidad", "pk": 3, 
+	"fields":
+		{
+		"empresa": "MC Donalds",
+		"descripcion": "Unas hamburguesas que te caes de ojete!!!",
+		"tel": "3871234567",
+		"imagen": "https://i.im.ge/2023/08/03/9nk8Uf.image.png",
+		"link": "https://www.mcdonalds.com/us/en-us.html",
+		"activo": "True"
+	}
+}
+]
+
