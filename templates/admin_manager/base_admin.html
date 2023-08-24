@@ -1,0 +1,30 @@
+
+{% if request.user.is_authenticated %}
+{% include 'menuLogin.html' %}
+<link href="/../media/css/bootstrap.min.css" rel="stylesheet">
+<title>Menú Administrador</title>
+<html>
+    
+    {% block content %}
+    <body>
+        <div class="mb-3 mx-auto p-2">
+
+            <h4 class="mb-3 mx-auto p-2" style="width: 500px;" >Administrador</h4>
+        
+            <div class="mb-3 mx-auto p-2" style="width: 500px;">
+                <a class="btn btn-primary btn-lg" href="{% url 'publicidad' %}"> Publicidad </a><br><br>
+                <a class="btn btn-primary btn-lg"href="{% url 'bingos_menu' %}"> Bingos </a><br><br>
+                <a class="btn btn-primary btn-lg"href="{% url 'carton_menu' %}"> Cartones </a><br><br>
+            </div>
+        </div>
+    </body>
+    <footer>
+
+    </footer>
+    
+    {% endblock %}
+
+</html>
+{% else %}
+<meta http-equiv="refresh" content="0;url={% url 'login' %}">
+{% endif %}

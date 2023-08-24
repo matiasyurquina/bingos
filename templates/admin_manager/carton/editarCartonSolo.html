@@ -1,0 +1,41 @@
+{% if request.user.is_authenticated %}
+{% include 'menuLogin.html' %}
+
+    <link href="/../../../../media/css/bootstrap.min.css" rel="stylesheet">
+    <br>
+    <title>Editar cartón singular</title>
+    <h4 class="mb-3 mx-auto p-2 col-3" style="width: 500px;" >¿Está seguro de querer cambiar el estado de este cartón?</h4>
+    <h3 class="mb-3 mx-auto p-2 col-3 text-success" >{{msg}}</h3>
+
+    {% if carton.vendido == True %}
+    <div class="mb-3 mx-auto p-2 col-6"> 
+        <h4 class="mb-3 mx-auto p-2 col-3"> Estado: </h4>
+        <h4 class="mb-3 mx-auto p-2 col-3 text-success" > Vendido </h4>
+        
+        <form class="mb-3 mx-auto p-2 col-3" action="" method="POST">{% csrf_token %}
+            <input type="submit" value="Cambiar" class="btn btn-primary"><br><br><br>
+        </form>
+    </div>
+    {% else %}
+
+    <div class="mb-3 mx-auto p-2 col-6"> 
+        <h4 class="mb-3 mx-auto p-2 col-3"> Estado: </h4>
+        <h4 class="mb-3 mx-auto p-2 col-3 text-danger" > No vendido </h4>
+
+
+        <form class="mb-3 mx-auto p-2 col-3" action="" method="POST"></h4>{% csrf_token %}
+            <input type="submit" value="Cambiar" class="btn btn-primary"><br><br><br>
+        </form>
+    </div>
+
+    {% endif %}
+    <div class="mb-3 mx-auto p-2 col-3" style="width: 500px;"> 
+        <a class="btn btn-danger" href="{% url 'cartones_editar' id %}?page={{page}}">Volver atrás</a>
+    </div> 
+
+{% else %}
+    <meta http-equiv="refresh" content="0;url={% url 'login' %}">
+{% endif %}
+
+  
+

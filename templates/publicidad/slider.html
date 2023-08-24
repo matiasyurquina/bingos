@@ -1,0 +1,50 @@
+{% block content %}
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+<div class="container">
+   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner"> 
+      {% if pubs %}
+
+        {% for p in pubs %}
+          {% if p.id == 1 %}
+          <div class="carousel-item active">
+            <a href="{{p.link}}" target="_blank">
+              <img src="{{p.imagen}}" class="bd-placeholder-img card-img-top" width="100%" height="50%" xmlns="http://www.w3.org/2000/svg" role="img">
+            </a>
+          </div>
+          {% else %}
+          <div class="carousel-item">
+            <a href="{{p.link}}" target="_blank">
+              <img src="{{p.imagen}}" class="bd-placeholder-img card-img-top" width="100%" height="50%" xmlns="http://www.w3.org/2000/svg" role="img">
+            </a>
+          </div>
+          {% endif %}
+        {% endfor %}
+        
+        <div class="carousel-item">
+          <a href="https://docs.google.com/forms/d/1WoG_BrOF5HOSU4X-XOr7c26VjKuDgyHbJIn1te1FPAQ/edit" target="_blank">
+            <img src="../../media/images/publicite-aqui.jpg" class="bd-placeholder-img card-img-top" width="100%" height="50%" xmlns="http://www.w3.org/2000/svg" role="img">
+          </a>
+        </div>
+      {% endif %}
+      
+    </div>
+  </div>
+  {% endblock %}

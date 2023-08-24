@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'publicidad/slider.html' %}
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+      {% if carton %}<!--si se encuentra el número de carton ingresado-->
+        {% for c in carton %}
+              {% if c.vendido == True %} 
+              <h4 class="text-success">Tu cartón número <strong>{{c.num_carton}}</strong> ya está jugando</h4>
+              <h5>Fecha de sorteo: 
+              {{bingo.fecha_sorteo.day}}-{{bingo.fecha_sorteo.month}}-{{bingo.fecha_sorteo.year}}
+              </h5>
+              <h5>Nombre: {{bingo.nombre_bingo}}</h5>
+              {% else %}
+                <h4 class="text-danger">Tu cartón aún no fue rendido </h4>
+              {% endif %}
+        {% endfor %}
+      {% else %}<!--si el carton no se encuentra-->
+      <h4 class="text-danger">Tu cartón aún no fue rendido </h4>
+      {% endif %}
+      </div>
+    </div>
+    <a href="/" class="btn btn-danger">Volver atrás</a>
+</section>
+
+{% include 'publicidad/publicidad.html' %}
+{% endblock %}

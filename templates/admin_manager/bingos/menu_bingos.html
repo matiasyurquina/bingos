@@ -1,0 +1,46 @@
+{% if request.user.is_authenticated %}
+{% include 'menuLogin.html' %}
+
+  <link href="../../../media/css/bootstrap.min.css" rel="stylesheet">
+
+  <title>Menú Bingos</title>
+
+  <div class="mb-3 mx-auto p-2">
+
+      <h4 class="mb-3 mx-auto p-2" style="width: 500px;" >Bingos</h4>
+
+      <div class="mb-3 mx-auto p-2" style="width: 500px;">
+          <a class="btn btn-primary btn-lg" href="{% url 'bingos_nuevo' %}"> Crear Nuevo Bingo </a><br><br>
+          <a class="btn btn-primary btn-lg" href="{% url 'bingos_editarShow' %}"> Editar Bingo </a> <br><br><br><br>
+          <a class="btn btn-danger" href="{% url 'admin_home' %}">Volver a Menú Principal</a>
+      </div>
+  </div>
+{% else %}
+  <meta http-equiv="refresh" content="0;url={% url 'login' %}">
+{% endif %}
+  
+
+<!--
+<button onclick="abrir()">Abrir dialogo </button>
+<div id="respuesta"></div>
+<dialog id="msg" onclose="resultado()">
+  ¿Está seguro de querer guardar los cambios?
+   <form method="dialog">
+    <button value="Si">Si</button>
+    <button value="No">No</button>
+  </form>
+</dialog>
+
+<script>
+function abrir(){
+  let dlg = document.getElementById("msg");
+  dlg.show();
+}
+
+function resultado(){
+  let dlg = document.getElementById("msg");
+  let resp = document.getElementById("respuesta");
+    resp.innerHTML = dlg.returnValue;
+}
+</script>
+-->

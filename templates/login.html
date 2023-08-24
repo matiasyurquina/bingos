@@ -1,0 +1,27 @@
+
+
+<title>Login - Adminsitrador</title>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="../../media/css/bootstrap.min.css" rel="stylesheet">
+
+<br><br>
+<h4 class="mb-3 mx-auto p-2" style="width: 500px;" >Logueo Administrador  </h4>
+<div class="mb-3 mx-auto p-2 position-relative">
+    <form method="post" class="mb-3 mx-auto p-2 position-relative" style="width: 500px;">
+        {% csrf_token %}
+        <label for="username">Usuario:</label><br>
+        <input type="text" id="username" name="username" min="6" class="form-control"><br><br>
+        <label for="password">Contraseña:</label><br>
+        <input type="password" id="password" name="password" min="8" class="form-control"><br><br>
+        <input type="submit" value="Iniciar sesión" class="btn btn-primary">
+    </form>
+    
+
+</div>
+
+
+

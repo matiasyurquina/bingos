@@ -1,0 +1,82 @@
+{% if request.user.is_authenticated %}
+{% include 'menuLogin.html' %}
+
+    <link href="../../../../media/css/bootstrap.min.css" rel="stylesheet">
+    <br>
+    <title>Editar cartones</title>
+    {% if cartones %}
+    <div class="mb-3 mx-auto p-2 col-6">
+        <h4 class="mb-3 mx-auto p-2 col-3" style="width: 500px;" >Cartones del bingo: {{bingo.nombre_bingo}}</h4>
+        <h4 class="mb-3 mx-auto p-2 col-3 text-danger" style="width: 500px;" >Día del sorteo: {{bingo.fecha_sorteo.day}}-{{bingo.fecha_sorteo.month}}-{{bingo.fecha_sorteo.year}}</h4>
+        <table class="table">
+            <thead class="table-dark">
+                <td>
+                    ID BINGO
+                </td>
+                <td>
+                    ID CARTÓN
+                </td>
+                <td>
+                    Nº DE CARTÓN
+                </td>
+                <td>
+                    VENDIDO
+                </td>
+                <td>
+                    EDITAR
+                </td>
+
+            </thead>
+            <br>
+        {% for c in cartones %}
+            <tr>
+                <td>
+                    {{c.idBingo_id}}
+                </td>
+                <td>
+                    {{c.idCarton}}
+                </td>
+                <td>
+                    {{c.num_carton}}
+                </td>
+                <td>
+                    {% if c.vendido == True %}
+                    <div class="text-success">SI</div>
+                    {% else %}
+                    <div class="text-danger">NO</div>                
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{c.idCarton}}?page={{page}}">Ver</a>
+                    
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+    {% if cartones.has_previous %}
+        <a class="btn btn-primary" href="?page={{cartones.previous_page_number}}#btnVolver" >Anterior</a>
+    {% endif %}
+
+    {% if cartones.has_next %}
+        <a class="btn btn-primary" href="?page={{cartones.next_page_number}}#btnVolver" >Siguiente</a>
+    {% endif %}
+    <br><br>
+    <a id="btnVolver" class="btn btn-danger" href="{% url 'cartones_show' %}">Volver atrás</a>
+
+    </div>
+    {% else %}
+
+    <div class="mb-3 mx-auto p-2 col-3">
+        <br><br>
+        <h3 class="col-12">No existen cartones en este bingo</h3> 
+        <br>
+        <a class="btn btn-danger" href="{% url 'cartones_show' %}">Volver atrás</a>  
+    </div> 
+
+    {% endif %}
+
+{% else %}
+    <meta http-equiv="refresh" content="0;url={% url 'login' %}">
+{% endif %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'publicidad/slider.html' %}
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <form method="POST" action="verificar_carton/"> {%csrf_token%}
+        {% if bingos %}
+            <h1 class="fw-light">Elegí tu bingo</h1><br>
+            <select class="form-select form-select-lg mb-3" name="idBingo" id="idBingo">
+              {% for b in bingos %}
+                <option value="{{b.idBingo}}">{{b.nombre_bingo}}</option>
+              {% endfor %}
+            </select>
+            <br><br>
+            <h1 class="fw-light">Ingresá tu número de cartón</h1> <br>
+            <input class="form-control" type="number" required min="1" max="500000" name="txtCarton" id="txtCarton">
+		<br><br>
+	        <input type="submit" value="Verificar" class="btn btn-primary">
+        {% else %}
+            <p class="lead text-muted">Actualmente NO hay bingos por sortear</p>
+        {% endif %}
+        <br><br>
+      </form>
+      </div>
+    </div>
+</section>
+{% include 'publicidad/publicidad.html' %}
+{% endblock%}
+<script>
+  //var x = document.getElementById("idBingo").selectedIndex=0;
+</script>
+
+

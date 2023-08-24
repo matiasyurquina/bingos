@@ -1,0 +1,18 @@
+{% if request.user.is_authenticated %}
+{% include 'menuLogin.html' %}
+
+
+    <link href="../../../../media/css/bootstrap.min.css" rel="stylesheet">
+    <title>Error</title>
+    <br><br>
+
+    <div class="mb-3 mx-auto p-2 col-3">
+        <h4 class="mb-3 mx-auto p-2 col-3 text-danger" style="width: 500px;">{{msg}}</h4>
+        <div class="mb-3 mx-auto p-2"> 
+            <a class="btn btn-primary" href="{% url 'publicidad' %}"> Volver atrás</a>
+        </div>
+    </div>
+
+{% else %}
+    <meta http-equiv="refresh" content="0;url={% url 'login' %}">
+{% endif %}
