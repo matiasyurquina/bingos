@@ -1,74 +1,76 @@
+
 {% if request.user.is_authenticated %}
 {% include 'menuLogin.html' %}
-
-    <link href="../../../media/css/bootstrap.min.css" rel="stylesheet">
     <title>Ver bingos disponibles</title>
-
     <br>
     <br>
-    <h4 class="mb-3 mx-auto p-2 col-3" style="width: 500px;" >Bingos disponibles</h4>
-    <div class="mb-3 mx-auto col-6"> 
-    <table class="table">
-
-    {% if bingos %}
-        <thead class="table-dark">
-            <td>
-                IDBINGO
-            </td>
-            <td>
-                NOMBRE BINGO
-            </td>
-            <td>
-                FECHA SORTEO
-            </td>
-            <td>
-                CANTIDAD CARTONES
-            </td>
-            <td>
-                ACTIVO
-            </td>
-            <td>
-                EDITAR
-            </td>
-        </thead>
+    <h4 class="text-center" >Bingos disponibles</h4>
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="table-responsive mb-3 mx-auto p-2"> 
+            <table class="table">
+            {% if bingos %}
+                <thead class="table-dark table-striped">
+                    <td>
+                        ID BINGO
+                    </td>
+                    <td>
+                        NOMBRE BINGO
+                    </td>
+                    <td>
+                        FECHA SORTEO
+                    </td>
+                    <td>
+                        CANTIDAD CARTONES
+                    </td>
+                    <td>
+                        ACTIVO
+                    </td>
+                    <td>
+                        EDITAR
+                    </td>
+                </thead>
+                <br>
+                {% for b in bingos %}
+                <tr>
+                    <td>
+                        {{b.idBingo}}
+                    </td>
+                    <td>
+                        {{b.nombre_bingo}}
+                    </td>
+                    <td>
+                        {{b.fecha_sorteo}}
+                    </td>
+                    <td>
+                        {{b.cantidad_cartones}}
+                    </td>
+                    <td>
+                        {% if b.activo == True %}
+                            Activo
+                        {% else %}
+                            Inactivo
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{{b.idBingo}}">Ver</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
         <br>
-        {% for b in bingos %}
-        <tr>
-            <td>
-                {{b.idBingo}}
-            </td>
-            <td>
-                {{b.nombre_bingo}}
-            </td>
-            <td>
-                {{b.fecha_sorteo}}
-            </td>
-            <td>
-                {{b.cantidad_cartones}}
-            </td>
-            <td>
-                {% if b.activo == True %}
-                    Activo
-                {% else %}
-                    Inactivo
-                {% endif %}
-            </td>
-            <td>
-                <a href="{{b.idBingo}}">Ver</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-
-        <br><br>
-        <a class="btn btn-danger" href="{% url 'carton_menu' %}">Volver atrás</a>
-
+        <div class="d-flex justify-content-between align-items-center">
+            <a class="btn btn-danger mb-3 mx-auto p-2" href="{% url 'carton_menu' %}">Volver atrás</a>
+        </div>
+        
     {%else%}
-        <div class="mb-3 mx-auto p-2 col-6">
-            <br><br>
-            <h3 class="col-12">No existen bingos cargados</h3> 
+    <br><br>
+    
+            <h3 class="text-center">No existen bingos cargados</h3> 
             <br>
-            <a class="btn btn-danger" href="{% url 'carton_menu' %}">Volver atrás</a>  
+        <div class="d-flex justify-content-between align-items-center">
+            <a class="btn btn-danger mb-3 mx-auto p-2" href="{% url 'carton_menu' %}">Volver atrás</a>  
         </div> 
     {% endif %}
 

@@ -1,27 +1,31 @@
+
 {% if request.user.is_authenticated %}
 {% include 'menuLogin.html' %}
 
-  <link href="../../../media/css/bootstrap.min.css" rel="stylesheet">
   <title>Nueva Publicidad</title>
 
-
-    <div class="mb-3 mx-auto p-2"> 
-        <h4 class="mb-3 mx-auto p-2" style="width: 500px;" >Nueva Publicidad  </h4>
-      <form class="mb-3 mx-auto p-2" style="width: 500px;" method="POST" action="" enctype="multipart/form-data">{%csrf_token%}
-      <label>Empresa: <input class="form-control" required name="empresa" id="empresa" type="text"> </label><br><br>
-      <label>Descripción: <input class="form-control" required name="descripcion" id="descripcion" type="text" rows="5" cols="50"> </label><br><br>
-      <label>Teléfono: <input class="form-control" value="" required name="tel" id="tel" type="number" min="1111111111" max="9999999999"> </label><br><br>
-      <label>Imagen: <input class="form-control" name="imagen" id="imagen" required type="file" accept=".jpg, .png, .jpeg" > </label><br><br>
-      <label>Link: <input class="form-control" required name="link" id="link" type="text" maxlength="128"> </label><br><br>
-      <label>Activo: 
-        <select class="form-control" required name="activo" id="activo"> 
-          <option value="True">Si</option>
-          <option value="False">No</option>
-        </select>
-        <br>
-      <input class="btn btn-primary" name="submit" id="submit" type="submit" value="Guardar">
-      </label><br><br><br><br>
-      <a class="btn btn-danger" href="{% url 'publicidad' %}">Volver atrás</a>  
+  <h4 class="text-center">Nueva Publicidad  </h4><br>
+    <div class="d-flex justify-content-between align-items-center"> 
+      <form class="mb-3 mx-auto p-2" method="POST" action="" enctype="multipart/form-data">{%csrf_token%}
+        <label>Empresa: 
+          <input class="form-control" required name="empresa" id="empresa" type="text"> </label><br><br>
+        <label>Descripción: 
+          <input class="form-control" required name="descripcion" id="descripcion" type="text" rows="5" cols="50"> </label><br><br>
+        <label>Teléfono: 
+          <input class="form-control" value="" required name="tel" id="tel" type="number" min="1111111111" max="9999999999"> </label><br><br>
+        <label>Imagen: 
+          <input class="form-control" name="imagen" id="imagen" required type="file" accept=".jpg, .png, .jpeg" > </label><br><br>
+        <label>Link: 
+          <input class="form-control" required name="link" id="link" type="text" maxlength="128"> </label><br><br>
+        <label>Activo: 
+          <select class="form-control" required name="activo" id="activo"> 
+            <option value="True">Si</option>
+            <option value="False">No</option>
+          </select>
+          <br>
+        <input class="btn btn-primary" name="submit" id="submit" type="submit" value="Guardar">
+        </label><br><br><br><br>
+        <a class="btn btn-danger" href="{% url 'publicidad' %}">Volver atrás</a>  
 
       </form>
     </div>

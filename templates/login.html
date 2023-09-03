@@ -6,12 +6,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
 <link href="../../media/css/bootstrap.min.css" rel="stylesheet">
 
 <br><br>
-<h4 class="mb-3 mx-auto p-2" style="width: 500px;" >Logueo Administrador  </h4>
-<div class="mb-3 mx-auto p-2 position-relative">
-    <form method="post" class="mb-3 mx-auto p-2 position-relative" style="width: 500px;">
+<div class="d-flex justify-content-between align-items-center">
+    <h4 class="mb-3 mx-auto p-2">Logueo Administrador  </h4>
+</div>
+<div class="d-flex justify-content-between align-items-center"><br><br><br>
+    <form method="post" class="mb-3 mx-auto p-2">
         {% csrf_token %}
         <label for="username">Usuario:</label><br>
         <input type="text" id="username" name="username" min="6" class="form-control"><br><br>

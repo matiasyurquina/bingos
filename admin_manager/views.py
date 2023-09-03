@@ -76,7 +76,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('admin_home')  # Cambia esto a la página que desees después del login
+            return redirect('admin_home') 
     return render(request, 'login.html')
 
 def logout_view(request):

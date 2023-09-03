@@ -1,24 +1,22 @@
 {% if request.user.is_authenticated %}
 {% include 'menuLogin.html' %}
-
-    <link href="../../../media/css/bootstrap.min.css" rel="stylesheet">
-
     <title>Nuevo Bingo</title>
 
-    <div class="mb-3 mx-auto p-2"> 
-        <h4 class="mb-3 mx-auto p-2" style="width: 500px;" >Nuevo Bingo  </h4>
-        <form class="mb-3 mx-auto p-2" style="width: 500px;" method="POST" action="{% url 'bingos_nuevo' %}">{%csrf_token%}
-            <label>Nombre del Bingo: <input class="form-control" required name="nombre_bingo" id="nombre_bingo" type="text"> </label><br><br>
-            <label>Cantidad de Bingos: <input class="form-control" value="" required name="cantidad_bingos" id="cantidad_bingos" type="number" min="10" max="500000"> </label><br><br>
-            <label>Fecha de Sorteo: <input class="form-control" required name="fecha_sorteo" id="fecha_sorteo" type="date"> </label><br><br>
-            <input class="btn btn-primary" name="submit" id="submit" type="submit" value="Guardar">
-            <br><br><br><br>
-            <a class="btn btn-danger" href="{% url 'bingos_menu' %}">Volver atrás</a>  
-        </form>
-
-        
-
-        
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="mb-3 mx-auto p-2"> 
+            <h4 class="text-center">Nuevo Bingo</h4> <br>
+            <form class="" method="POST" action="{% url 'bingos_nuevo' %}">{%csrf_token%}
+                <label>Nombre del Bingo: 
+                    <input class="form-control" required name="nombre_bingo" id="nombre_bingo" type="text"> </label><br><br>
+                <label>Cantidad de Bingos: 
+                    <input class="form-control" value="" required name="cantidad_bingos" id="cantidad_bingos" type="number" min="10" max="500000"> </label><br><br>
+                <label>Fecha de Sorteo: 
+                    <input class="form-control" required name="fecha_sorteo" id="fecha_sorteo" type="date"> </label><br><br>
+                    <input class="btn btn-primary" name="submit" id="submit" type="submit" value="Guardar">
+                <br><br><br><br>
+                <a class="btn btn-danger" href="{% url 'bingos_menu' %}">Volver atrás</a>  
+            </form>        
+        </div>
     </div>
     <script>
             var dd, mm, yyyy;

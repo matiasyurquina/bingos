@@ -1,72 +1,72 @@
 {% if request.user.is_authenticated %}
 {% include 'menuLogin.html' %}
-
-    <link href="/../../../media/css/bootstrap.min.css" rel="stylesheet">
     <br>
     <br>
     {% if cartones %}<!--Si se hizo submit, muestro los cartones rendidos-->
     <title>Cartones subidos exitosamente</title>
-    <div class="mb-3 mx-auto p-2 col-6">
-    <h4 class="mb-3 mx-auto p-2 col-3 text-success" style="width: 200%;" >Cartones exitosamente editados! {{bingo.nombre_bingo}}</h4>
+    <h4 class="text-success text-center">Cartones exitosamente editados! {{bingo.nombre_bingo}}</h4>
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="table-responsive mb-3 mx-auto p-2">
+            <table class="table">
+                <thead class="table-dark table-striped">
+                    <td>
+                        ID BINGO
+                    </td>
+                    <td>
+                        ID CARTÓN
+                    </td>
+                    <td>
+                        Nº DE CARTÓN
+                    </td>
+                    <td>
+                        VENDIDO
+                    </td>
 
-    <table class="table">
-        <thead class="table-dark">
-            <td>
-                ID BINGO
-            </td>
-            <td>
-                ID CARTÓN
-            </td>
-            <td>
-                Nº DE CARTÓN
-            </td>
-            <td>
-                VENDIDO
-            </td>
+                </thead>
+                <br>
+            {% for c in cartones %}
+                <tr>
+                    <td>
+                        {{c.idBingo_id}}
+                    </td>
+                    <td>
+                        {{c.idCarton}}
+                    </td>
+                    <td>
+                        {{c.num_carton}}
+                    </td>
+                    <td>
+                        <div class="text-success">SI</div>
+                    </td>
+                </tr>
+            </div>
+            {% endfor %}
 
-        </thead>
-        <br>
-    {% for c in cartones %}
-        <tr>
-            <td>
-                {{c.idBingo_id}}
-            </td>
-            <td>
-                {{c.idCarton}}
-            </td>
-            <td>
-                {{c.num_carton}}
-            </td>
-            <td>
-                <div class="text-success">SI</div>
-            </td>
-        </tr>
+            </table>            
+        </div>
     </div>
-    {% endfor %}
-
-    </table>
     <br>
     <br>
-    <a class="btn btn-danger" href="{% url 'cartones_subir' %}">Volver atrás</a>
-
+    <div class="d-flex justify-content-between align-items-center">
+        <a class="btn btn-danger mb-3 mx-auto p-2" href="{% url 'cartones_subir' %}">Volver atrás</a>    
+    </div>
+    
+    
     {% else %}
 
     <title>Subir Carton</title>
-
-    <h4 class="mb-3 mx-auto p-2 col-3" >Subir cartones rendidos de: {{bingo.nombre_bingo}} </h4>
-    <div class="mb-3 mx-auto col-3">
-
-        
-        <form action="" method="POST" enctype="multipart/form-data">{%csrf_token%}
-            <!---->
-            
-            {{ form.as_p }}<br><br>
-            <input class="btn btn-primary" type="submit" value="Subir">
-
-        </form><br><br>
-
-        <a class="btn btn-danger" href="{% url 'cartones_subir' %}">Volver atrás</a>
-
+    
+    <h4 class="text-center" >Subir cartones rendidos de: {{bingo.nombre_bingo}}</h4> <br>
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="mb-3 mx-auto p-2">
+            <form action="" method="POST" enctype="multipart/form-data">{%csrf_token%}
+                {{ form.as_p }}<br><br>
+                <input class="btn btn-primary" type="submit" value="Subir">
+            </form><br><br>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+        <a class="btn btn-danger mb-3 mx-auto p-2" href="{% url 'cartones_subir' %}">Volver atrás</a>    
     </div>
     {% endif %}
 

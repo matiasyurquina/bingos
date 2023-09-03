@@ -1,15 +1,11 @@
 {% if request.user.is_authenticated %}
 {% include 'menuLogin.html' %}
 
-  <link href="../../../media/css/bootstrap.min.css" rel="stylesheet">
-
   <title>Menú Bingos</title>
 
-  <div class="mb-3 mx-auto p-2">
-
-      <h4 class="mb-3 mx-auto p-2" style="width: 500px;" >Bingos</h4>
-
-      <div class="mb-3 mx-auto p-2" style="width: 500px;">
+  <h4 class="text-center">Bingos</h4><br>
+  <div class="d-flex justify-content-between align-items-center">
+      <div class="mb-3 mx-auto p-2">
           <a class="btn btn-primary btn-lg" href="{% url 'bingos_nuevo' %}"> Crear Nuevo Bingo </a><br><br>
           <a class="btn btn-primary btn-lg" href="{% url 'bingos_editarShow' %}"> Editar Bingo </a> <br><br><br><br>
           <a class="btn btn-danger" href="{% url 'admin_home' %}">Volver a Menú Principal</a>
