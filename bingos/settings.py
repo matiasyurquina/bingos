@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%r$bt_tosn%nr^7-9q$-h4tz%_4dqft25v0^m8l(2_4w!db4u('
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
