@@ -67,14 +67,14 @@ DATABASES = {
 }
 
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'bingos',
-#         'USER': 'matias',
-#         'PASSWORD': '1234',
-#         'HOST': '',  # Puedes cambiarlo si la base de datos está en otro servidor
-#         'PORT': '3306',       # Puerto por defecto de MySQL
-#     }
+#  'default': {
+#      'ENGINE': 'django.db.backends.mysql',
+#      'NAME': 'bingos$bingos',
+#      'USER': 'bingos',
+#      'PASSWORD': 'G2220HDA',
+#      'HOST': 'bingos.mysql.pythonanywhere-services.com',  # Puedes cambiarlo si la base de datos está en otro servidor
+#      'PORT': '',       # Puerto por defecto de MySQL
+#  }
 # }
 
 AUTH_PASSWORD_VALIDATORS = [
